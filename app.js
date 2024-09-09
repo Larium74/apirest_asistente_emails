@@ -25,7 +25,15 @@ app.post ("/enviar-email", async (req, res) => {
     const msg = "El correo de bienvenida ha sido enviado exitosamente"
     const {emailTo, asunto, descripcion} = req.body
 
-    await enviar_correo (emailTo, asunto, descripcion, msg)
+    try {
+
+        await enviar_correo (emailTo, asunto, descripcion, msg)
+        res.status (202).json ({
+            mensaje: "El email ha sido exitosamente"
+        })
+    } catch (error) {
+        console.error ("Ocurrió un error al enviar el email")
+    }
 
 })
 
