@@ -21,6 +21,9 @@ export let enviar_correo = async (emailTo, asunto ,content, mes) => {
             text: content,
           })
           console.log (mes)
+          res.status (200).json ({
+            mensaje: "El email ha sido enviado exitosmaente"
+          })
 
     }
     catch (error) {

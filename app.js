@@ -26,6 +26,7 @@ app.post ("/enviar-email", async (req, res) => {
     const {emailTo, asunto, descripcion} = req.body
 
     await enviar_correo (emailTo, asunto, descripcion, msg)
+
 })
 
 
